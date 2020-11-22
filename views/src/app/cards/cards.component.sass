@@ -2,17 +2,15 @@
 $cardsMargin__ImageDescription: 10px
 $cardButton--Height: 30px
 .cards
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  grid-gap: 10px
-  grid-auto-rows: minmax(auto, auto)
+  display: flex
   width: 40%
-  margin: 40px auto auto auto
+  margin: 40px auto auto 0px
 
   &__container
+    margin: auto 10px
     grid-column: 1
     grid-row: 1
-    box-shadow: 3px 3px 4px #efefef
+    box-shadow: 2px 2px 3px #757575
     border: none
     border-radius: 0px 0px 10px 10px
 
@@ -25,14 +23,25 @@ $cardButton--Height: 30px
       border-top: 1px solid black
 
       &--search
+        padding: 1px
         border: none
         border-right: 1px solid black
         width: 100%
+        background: transparent
+        background-image: url('/../assets/images/lupa.png')
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
 
       &--shop
+        padding: 1px
         border: none
         width: 100%
-
+        background: transparent
+        background-image: url('/../assets/images/shop_car.png')
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
 
   &__image
     width: 100%
