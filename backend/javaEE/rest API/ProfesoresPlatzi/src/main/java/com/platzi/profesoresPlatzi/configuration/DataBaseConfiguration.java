@@ -2,10 +2,12 @@ package com.platzi.profesoresPlatzi.configuration;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.AbstractDataSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -26,7 +28,7 @@ public class DataBaseConfiguration {
 	@Bean
 	public AbstractDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/platziprofesores?serverTimezone=UTC");
 		dataSource.setUsername("platziProfesores");
 		dataSource.setPassword("Aasdf1234$");
@@ -38,6 +40,14 @@ public class DataBaseConfiguration {
 		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		properties.put("show_sql", "true");
 		return properties;
-		
+	}
+	
+	
+	@Bean
+	@Autowired
+	public HibernateTransactionManager transactionManager() {
+		HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
+		hibernateTransactionManager.setSessionFactory(sessionFactory().getObject());
+		return hibernateTransactionManager;
 	}
 }
