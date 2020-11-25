@@ -1,7 +1,0 @@
-sección movil:
-
-- hamburguesa menu
-- Cards de productos
-- scroll muestra iconos de whatsapp y messenger
-- sección de contacto
-- sección de redes sociales
