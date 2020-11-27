@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.platzi.profesoresPlatzi.model.SocialMedia;
 import com.platzi.profesoresPlatzi.service.SocialMediaService;
+import com.platzi.profesoresPlatzi.util.CustomErrorType;
 
 @Controller
 @RequestMapping("/v1")
@@ -48,7 +49,7 @@ public class SocialMediaController {
 		public ResponseEntity<SocialMedia> getSocialMediasById(@PathVariable("id") Long idSocialMedia){
 			
 			if(idSocialMedia == null || idSocialMedia <= 0) {
-				return new ResponseEntity<SocialMedia>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity(new CustomErrorType("idSocialMedia is required and bigger tan 0"), HttpStatus.CONFLICT);
 			}
 
 			SocialMedia socialMedia = _socialMediaService.findById(idSocialMedia);
@@ -69,7 +70,7 @@ public class SocialMediaController {
 		}
 		
 		if(_socialMediaService.findByName(socialMedia.getName()) != null) {
-			return new ResponseEntity(HttpStatus.NO_CONTENT);
+			return new ResponseEntity(new CustomErrorType("name is required"), HttpStatus.CONFLICT);
 		}
 		
 		_socialMediaService.saveSocialMedia(socialMedia);
@@ -86,7 +87,7 @@ public class SocialMediaController {
 		@RequestMapping(value = "/socialMedias/{id}", method = RequestMethod.PATCH, headers = "Accept=application/json")
 		public ResponseEntity<SocialMedia> updateSocialMedia(@PathVariable("id") Long idSocialMedia, @RequestBody SocialMedia socialMedia){
 			if(idSocialMedia == null || idSocialMedia <= 0) {
-				return new ResponseEntity<SocialMedia>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity(new CustomErrorType("idSocialMedia is required and bigger tan 0"), HttpStatus.CONFLICT);
 			}
 			
 			if(socialMedia == null) {
@@ -113,7 +114,7 @@ public class SocialMediaController {
 				@RequestMapping(value = "/socialMedias/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 				public ResponseEntity<SocialMedia> deleteSocialMedia(@PathVariable("id") Long idSocialMedia){
 					if(idSocialMedia == null || idSocialMedia <= 0) {
-						return new ResponseEntity<SocialMedia>(HttpStatus.NO_CONTENT);
+						return new ResponseEntity(new CustomErrorType("idSocialMedia is required and bigger tan 0"), HttpStatus.CONFLICT);
 					}
 					
 					SocialMedia socialMedia = _socialMediaService.findById(idSocialMedia);
