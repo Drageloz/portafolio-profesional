@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { NavBarHamburguerComponent } from './nav-bar-hamburguer/nav-bar-hamburguer.component';
 import { CardsComponent } from './cards/cards.component';
+import { PayMethodComponent } from './pay-method/pay-method.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarHamburguerComponent,
-    CardsComponent
+    CardsComponent,
+    PayMethodComponent
   ],
   imports: [
     BrowserModule,
