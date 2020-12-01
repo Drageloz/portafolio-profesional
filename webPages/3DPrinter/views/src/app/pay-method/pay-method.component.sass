@@ -1,13 +1,38 @@
+$ancho__imagen: 40vw
+$alto__imagen: 40vw
+$margenTop__imagen--efecty: -7vw
+$margenTop__imagen--pse: -13vw
+
 .payMethod
-  margin: 50px auto auto auto
+  margin: auto
+  margin-top: 15px
   width: 100%
+  height: auto
   overflow: hidden
+  position: relative
+
+  &__background
+    background: #D6D6D6
+    transform-origin: left top
+    position: absolute
+    width: 200%
+    z-index: -1
+
+
 
   &__container
-    background: #D6D6D6
     width: 100%
+
+
 
   &__image
     display: block
     margin: auto
-    width: 50%
+    width: $ancho__imagen
+    height: $alto__imagen
+
+    &--efecty
+      margin-top: $margenTop__imagen--efecty
+
+    &--pse
+      margin-top: $margenTop__imagen--pse

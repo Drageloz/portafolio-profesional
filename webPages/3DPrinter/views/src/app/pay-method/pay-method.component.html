@@ -1,7 +1,9 @@
-<div class="payMethod">
+<div #principalDiv (window:resize)="onResize($event)" class="payMethod">
+  <div class="payMethod__background" style="transform: rotate({{angle}}deg); height: {{widthDiv}}px;"></div>
+  <div class="titles" style="margin-top: 30px;">Métodos de Pago</div>
   <div class="payMethod__container">
-    <div class="titles">Métodos de Pago</div>
-    <img class="payMethod__image" src="../../assets/images/egi-mp-efecty.png" alt="efecty">
-    <img class="payMethod__image" src="../../assets/images/logo-pse.png" alt="pse">
+    <img class="payMethod__image payMethod__image--efecty" src="../../assets/images/PNG/efecty.png" alt="efecty">
+    <img class="payMethod__image payMethod__image--pse" src="../../assets/images/PNG/pse.png" alt="pse">
   </div>
 </div>
+

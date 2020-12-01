@@ -46,9 +46,10 @@ $cardButton--Height: 30px
   &__image
     width: 100%
 
+
 .containerDescription
   display: grid
-  grid-template-columns: repeat(3, 1fr)
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
   grid-gap: 10px
   grid-auto-rows: minmax(auto, auto)
 
@@ -56,6 +57,8 @@ $cardButton--Height: 30px
     grid-column: 1
     grid-row: 1
     margin: $cardsMargin__ImageDescription auto
+    color: #757575
+    font-size: 15px
 
   &__star
     grid-column: 2
@@ -65,7 +68,9 @@ $cardButton--Height: 30px
   &__qualification
     grid-column: 3
     grid-row: 1
-    margin: $cardsMargin__ImageDescription auto
+    margin: $cardsMargin__ImageDescription
+    color: #757575
+    font-size: 15px
 
   &__star--checked
     color: orange

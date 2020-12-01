@@ -1,0 +1,27 @@
+<div class="footer">
+  <div class="footer__text" style="padding-top: 80px;">
+    Mejoramos la realidad de las
+    personas al entregar productos
+    diseñados a su medida, teniendo la
+    calidad y la estética como puntos
+    claves.
+  </div>
+
+  <div class="footer__text" style="padding-top: 40px;">Síguenos en nuestras redes sociales</div>
+
+  <div class="footer__image--container">
+    <img class="footer__image--icon" src="../../assets/images/facebook.png" alt="facebook">
+    <img class="footer__image--icon" src="../../assets/images/instagram.png" alt="instagram">
+    <img class="footer__image--icon" src="../../assets/images/whastapp.png" alt="whatsapp">
+  </div>
+
+  <div class="footer" style="padding-bottom: 20px; width: 80%; margin: auto;">
+    <ng-container *ngFor = "let data of footerData; let indice=index">
+      <div *ngIf="indice < footerData.length -1 else finalText" class="footer__text footer__text--finalPart" style="border-left:solid 3px {{data.color}};">{{data.text}}</div>
+      <ng-template #finalText>
+        <div class="footer__text footer__text--finalPart" style="border-left:solid 3px {{data.color}};">{{data.text}}</div>
+        <!-- <div class="footer"></div>>  !-->
+      </ng-template>
+    </ng-container>
+  </div>
+</div>
